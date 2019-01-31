@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+</head>
+<body>
+	<form name="calculator">
+		Input1:<input type="text" name="input"><br>
+		Input2:<input type="text" name="input1"><br>
+		Output:<input type="text" name="output"><br><br>
+		<input type="button" value="1" onclick="document.calculator.input.value+='1'">
+		<input type="button" value="2" onclick="document.calculator.input.value+='2'">
+		<input type="button" value="3" onclick="document.calculator.input.value+='3'">
+		<input type="button" value="4" onclick="document.calculator.input.value+='4'"><br>
+		<input type="button" value="5" onclick="document.calculator.input.value+='5'">
+		<input type="button" value="6" onclick="document.calculator.input.value+='6'">
+		<input type="button" value="7" onclick="document.calculator.input.value+='7'">
+		<input type="button" value="8" onclick="document.calculator.input.value+='8'"><br>
+		<input type="button" value="9" onclick="document.calculator.input.value+='9'">
+		<input type="button" value="0" onclick="document.calculator.input.value+='0'">
+		<input type="button" value="+" onclick="document.calculator.input.value+='+'">
+		<input type="button" value="-" onclick="document.calculator.input.value+='-'"><br>
+		<input type="button" value="*" onclick="document.calculator.input.value+='*'">
+		<input type="button" value="/" onclick="document.calculator.input.value+='/'">
+		<input type="button" value="Clear" onclick="document.calculator.input.value='',document.calculator.input1.value='',document.calculator.output.value=''">
+		<input type="button" value="=" onclick="document.calculator.output.value=eval(document.calculator.input.value)"><br>
+		<input type="button" value="pi" onclick="document.calculator.input.value+='3.1416'">
+		<input type="button" value="," onclick="document.calculator.input.value+=','">
+		<input type="button" value="sqrt" onclick="sqrtFun()">
+		<input type="button" value="Round" onclick="roundFun()"><br>
+		<input type="button" value="Power" onclick="powFun()">
+		<input type="button" value="GCD" onclick="gcdFun()">
+		<input type="button" value="Ceiling" onclick="ceilFun()">
+		<input type="button" value="Floor" onclick="floorFun()"><br>
+		<input type="button" value="Sin" onclick="sinFun()">
+		<input type="button" value="Cos" onclick="cosFun()">
+
+	</form>
+	<script type="text/javascript">		
+		function sqrtFun(){
+			var val = document.calculator.input.value;
+			var ans = Math.sqrt(val);
+			document.calculator.output.value = ans;
+		}
+		function roundFun(){
+			var val = document.calculator.output.value;
+			var ans = Math.round(val);
+			document.calculator.output.value = ans;
+		}
+		function powFun(){
+			var val = document.calculator.input.value;
+			var val1 = document.calculator.input1.value;
+			var ans = Math.pow(val,val1);
+			document.calculator.output.value = ans;
+		}
+		function gcdFun(){
+			var val = document.calculator.input.value;
+			var val1 = document.calculator.input1.value;
+			var x = Math.abs(val);
+			var y = Math.abs(val1);
+			while(y){
+				var t = y;
+				y = x%y;
+				x = t; 
+			}
+			document.calculator.output.value = x;
+		}
+		function ceilFun(){
+			var val = document.calculator.output.value;
+			var ans = Math.ceil(val);
+			document.calculator.output.value = ans;
+		}
+		function floorFun(){
+			var val = document.calculator.output.value;
+			var ans = Math.floor(val);
+			document.calculator.output.value = ans;
+		}
+		function sinFun(){
+			var val = document.calculator.input.value;
+			var ans = Math.sin(val,Math.PI/180);
+			document.calculator.output.value = ans;
+		}
+		function cosFun(){
+			var val = document.calculator.input.value;
+			var ans = Math.cos(val,Math.PI/180);
+			document.calculator.output.value = ans;
+		}
+	</script>
+</body>
+</html>
